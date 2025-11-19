@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lingo Français</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background shapes -->
+  <div class="background-shapes" aria-hidden="true">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="shape shape4"></div>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="brand-container">
+        <img src="logo.png" alt="Lingo Français logo" class="logo" />
+        <div class="brand">Lingo<span>Français</span></div>
+      </div>
+
+      <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul id="nav-links" class="nav-links" role="menubar">
+        <li role="none"><a role="menuitem" href="#hero"><div class="nav-icon-box">🏠</div><span>Home</span></a></li>
+        <li role="none"><a role="menuitem" href="#features"><div class="nav-icon-box">⭐</div><span>Features</span></a></li>
+        <li role="none"><a role="menuitem" href="#form"><div class="nav-icon-box">📝</div><span>Join</span></a></li>
+        <li role="none"><a role="menuitem" href="#counter"><div class="nav-icon-box">📊</div><span>Progress</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="hero-text">
+        <h1>Learn French with Confidence</h1>
+        <p>Master French through structured lessons, vocabulary games, and interactive challenges.</p>
+        <a class="btn" href="#form">Join Now</a>
+      </div>
+      <div class="hero-image">
+        <img src="paris.jpg" alt="Eiffel Tower at sunset">
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features" aria-labelledby="features-heading">
+      <h2 id="features-heading">Why Choose LingoFrançais?</h2>
+      <div class="feature-grid">
+        <div class="feature"><h3> Interactive Lessons</h3><p>Engage with bite-sized French lessons designed for all levels.</p></div>
+        <div class="feature"><h3>🎮 Gamified Learning</h3><p>Earn points, unlock achievements, and keep your learning streak alive.</p></div>
+        <div class="feature"><h3>💬 Real Conversations</h3><p>Practice speaking and listening with real-world dialogues.</p></div>
+      </div>
+    </section>
+
+    <!-- Form -->
+    <section id="form" class="form-section" aria-labelledby="signup-heading">
+      <h2 id="signup-heading">Join LingoFrançais Today!</h2>
+      <form id="signupForm" novalidate>
+        <div class="form-control">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" placeholder="Enter your name" required />
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email" required />
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <div class="form-control">
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" inputmode="numeric" placeholder="10-digit phone" required />
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Create a password" minlength="6" required />
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <button type="submit" class="btn">Sign Up</button>
+        <p id="successMessage" class="success-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- Counter -->
+    <section id="counter" class="counter-section" aria-labelledby="counter-heading">
+      <h2 id="counter-heading">Lesson Progress Counter</h2>
+      <div class="counter-card" role="region" aria-label="Lesson counter">
+        <div class="counter-box" aria-live="polite">
+          <button id="decrement" aria-label="Decrement">-</button>
+          <span id="count" aria-atomic="true">0</span>
+          <button id="increment" aria-label="Increment">+</button>
+        </div>
+        <div class="counter-actions">
+          <button id="reset" class="reset-btn">Reset</button>
+          <button id="infoModalOpen" class="btn">Why track progress?</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>&copy; 2025 LingoFrançais. All Rights Reserved.</footer>
+
+  <!-- Toast container -->
+  <div id="toast-container" aria-hidden="true"></div>
+
+  <!-- Info modal (existing) -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-content" tabindex="-1">
+      <button id="modalClose" class="modal-close" aria-label="Close modal">✕</button>
+      <h3 id="modal-title">Track Your Progress</h3>
+      <p>Consistent practice is the fastest way to progress. Use the counter to mark lessons completed and celebrate milestones!</p>
+      <button id="modalOk" class="btn">Got it</button>
+    </div>
+  </div>
+
+  <!-- Profile Modal (glass-effect) -->
+  <div id="profileModal" class="modal profile-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="profile-title">
+    <div class="modal-content profile-content" tabindex="-1">
+      <div class="profile-controls">
+        <button id="profileClose" class="modal-close" aria-label="Close profile">✕</button>
+        <div class="profile-actions">
+          <button id="profileEdit" class="btn small">✎ Edit</button>
+          <button id="profileDelete" class="btn small danger">🗑 Delete</button>
+        </div>
+      </div>
+
+      <!-- glass profile card injected/populated by JS -->
+      <div id="profileCardContainer" class="profile-card-container" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
